@@ -1,0 +1,94 @@
+{
+    "GeneralInfo": [
+      {
+        "label": "Sender Id",
+        "type": "text",
+        "id": "senderId"
+      },
+      {
+        "label": "State",
+        "type": "text",
+        "id": "state"
+      },
+      {
+        "label": "Source Exchange Id",
+        "type": "text",
+        "id": "souExchId"
+      },
+      {
+        "label": "Payer Name",
+        "type": "text",
+        "id": "payerName"
+      },
+      {
+        "label": "Payer Id",
+        "type": "text",
+        "id": "payerId"
+      },
+      {
+        "label": "Conversion Carrier",
+        "type": "text",
+        "id": "convCarr"
+      },
+      {
+        "label": "Broker Name",
+        "type": "text",
+        "id": "brokerName"
+      },
+      {
+        "label": "Broker Id",
+        "type": "text",
+        "id": "brokerId"
+      },
+      {
+        "label": "Enrollment Status",
+        "type": "text",
+        "id": "enrollStatus"
+      },
+      {
+        "label": "Eligibility Effective Date",
+        "type": "date",
+        "id": "eligbDate"
+      },
+      {
+        "label": "Eligibility Term Date",
+        "type": "date",
+        "id": "eligbTermDate"
+      },
+      {
+        "label": "Coverage Status",
+        "type": "text",
+        "id": "covStatus"
+      },
+      {
+        "label": "Transaction Effective Date",
+        "type": "date",
+        "id": "transDate"
+      },
+      {
+        "label": "Transaction Term Date",
+        "type": "date",
+        "id": "transTermDate"
+      },
+      {
+        "label": "Number of Dependents",
+        "type": "text",
+        "id": "depNum"
+      },
+      {
+        "label": "Policy Number",
+        "type": "text",
+        "id": "policyNum"
+      },
+      {
+        "label": "Plan Hios Id",
+        "type": "text",
+        "id": "hiosId"
+      },
+      {
+        "label": "Rating Area",
+        "type": "text",
+        "id": "rateArea"
+      }
+    ]
+  }

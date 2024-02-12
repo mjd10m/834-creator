@@ -1,37 +1,23 @@
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form'
-import { useState } from 'react';
+import { Container, Row, Col, Form, Card } from 'react-bootstrap'
+import { useState, useEffect } from 'react';
+import JsonData from '../../data/data.json' 
+import GenInfo from '../genInfo'
 
 const SingleTrans = () => {
-    const [data, setData] = useState({});
-    
+    const [options, setOptions] = useState({})
+    const [pageData, setPageData] = useState({});
+
     const handleInputChange = (event) => {
         const { id, value } = event.target;
-        setData({ ...data, [id]: value });
+        setPageData({ ...pageData, [id]: value });
       };
-
+    
+    useEffect(() => {
+        setOptions(JsonData);
+      }, []);
     return(
         <Container>
-            <Row>
-                <Col>
-                    <Form>
-                        <Form.Group as={Row} className="mb-3">
-                            <Form.Label column sm= "auto">Subscriber Name</Form.Label>
-                            <Col sm="auto">
-                                <Form.Control type="text" placeholder="First Name" id = "first" onChange={handleInputChange} value={data.first || ""} />
-                            </Col>
-                            <Col sm="auto">
-                                <Form.Control type="text" placeholder="Middle Name" id="middle" onChange={handleInputChange} value={data.middle || ""} />
-                            </Col>
-                            <Col sm="auto">
-                                <Form.Control type="text" placeholder="Last Name" id="last" onChange={handleInputChange} value={data.last || ""} />
-                            </Col>
-                        </Form.Group>
-                    </Form>
-                </Col>
-            </Row>
+            <GenInfo data = {options.GeneralInfo} handleInputChange = {handleInputChange} />
         </Container>
     )
 }
