@@ -1,94 +1,186 @@
 {
     "GeneralInfo": [
-      {
-        "label": "Sender Id",
-        "type": "text",
-        "id": "senderId"
-      },
-      {
-        "label": "State",
-        "type": "text",
-        "id": "state"
-      },
-      {
-        "label": "Source Exchange Id",
-        "type": "text",
-        "id": "souExchId"
-      },
-      {
-        "label": "Payer Name",
-        "type": "text",
-        "id": "payerName"
-      },
-      {
-        "label": "Payer Id",
-        "type": "text",
-        "id": "payerId"
-      },
-      {
-        "label": "Conversion Carrier",
-        "type": "text",
-        "id": "convCarr"
-      },
-      {
-        "label": "Broker Name",
-        "type": "text",
-        "id": "brokerName"
-      },
-      {
-        "label": "Broker Id",
-        "type": "text",
-        "id": "brokerId"
-      },
-      {
-        "label": "Enrollment Status",
-        "type": "text",
-        "id": "enrollStatus"
-      },
-      {
-        "label": "Eligibility Effective Date",
-        "type": "date",
-        "id": "eligbDate"
-      },
-      {
-        "label": "Eligibility Term Date",
-        "type": "date",
-        "id": "eligbTermDate"
-      },
-      {
-        "label": "Coverage Status",
-        "type": "text",
-        "id": "covStatus"
-      },
-      {
-        "label": "Transaction Effective Date",
-        "type": "date",
-        "id": "transDate"
-      },
-      {
-        "label": "Transaction Term Date",
-        "type": "date",
-        "id": "transTermDate"
-      },
-      {
-        "label": "Number of Dependents",
-        "type": "text",
-        "id": "depNum"
-      },
-      {
-        "label": "Policy Number",
-        "type": "text",
-        "id": "policyNum"
-      },
-      {
-        "label": "Plan Hios Id",
-        "type": "text",
-        "id": "hiosId"
-      },
-      {
-        "label": "Rating Area",
-        "type": "text",
-        "id": "rateArea"
-      }
+        {
+            "label": "Sender Id",
+            "type": "text",
+            "id": "senderId"
+        },
+        {
+            "label": "State",
+            "type": "text",
+            "id": "state"
+        },
+        {
+            "label": "Source Exchange Id",
+            "type": "text",
+            "id": "souExchId"
+        },
+        {
+            "label": "Payer Name",
+            "type": "text",
+            "id": "payerName"
+        },
+        {
+            "label": "Payer Id",
+            "type": "text",
+            "id": "payerId"
+        },
+        {
+            "label": "Conversion Carrier",
+            "type": "text",
+            "id": "convCarr"
+        },
+        {
+            "label": "Broker Name",
+            "type": "text",
+            "id": "brokerName"
+        },
+        {
+            "label": "Broker Id",
+            "type": "text",
+            "id": "brokerId"
+        },
+        {
+            "label": "Enrollment Status",
+            "type": "text",
+            "id": "enrollStatus"
+        },
+        {
+            "label": "Eligibility Effective Date",
+            "type": "date",
+            "id": "eligbDate"
+        },
+        {
+            "label": "Eligibility Term Date",
+            "type": "date",
+            "id": "eligbTermDate"
+        },
+        {
+            "label": "Coverage Status",
+            "type": "text",
+            "id": "covStatus"
+        },
+        {
+            "label": "Transaction Effective Date",
+            "type": "date",
+            "id": "transDate"
+        },
+        {
+            "label": "Transaction Term Date",
+            "type": "date",
+            "id": "transTermDate"
+        },
+        {
+            "label": "Number of Dependents",
+            "type": "text",
+            "id": "depNum"
+        },
+        {
+            "label": "Policy Number",
+            "type": "text",
+            "id": "policyNum"
+        },
+        {
+            "label": "Plan Hios Id",
+            "type": "text",
+            "id": "hiosId"
+        },
+        {
+            "label": "Rating Area",
+            "type": "text",
+            "id": "rateArea"
+        }
+    ],
+    "SubscriberInfo": [
+        {
+          "label": "Subscriber Type",
+          "type": "text",
+          "id": "subtype"
+        },
+        {
+          "label": "Exchange Id",
+          "type": "text",
+          "id": "exchId"
+        },
+        {
+          "label": "Carrier Id",
+          "type": "text",
+          "id": "carrId"
+        },
+        {
+          "label": "Subscriber Name",
+          "type": "text",
+          "id": "subName"
+        },
+        {
+          "label": "SSN",
+          "type": "text",
+          "id": "ssn"
+        },
+        {
+          "label": "Street Address",
+          "type": "text",
+          "id": "strAddr"
+        },
+        {
+          "label": "City",
+          "type": "text",
+          "id": "city"
+        },
+        {
+          "label": "Zipcode",
+          "type": "text",
+          "id": "zCode"
+        },
+        {
+          "label": "County Code",
+          "type": "text",
+          "id": "cCode"
+        },
+        {
+          "label": "Date of Birth",
+          "type": "date",
+          "id": "dob"
+        },
+        {
+          "label": "Gender",
+          "type": "text",
+          "id": "gen"
+        },
+        {
+          "label": "Smoker Code",
+          "type": "text",
+          "id": "smoke"
+        },
+        {
+          "label": "Coverage Type",
+          "type": "text",
+          "id": "covType"
+        },
+        {
+          "label": "Premium Amount",
+          "type": "text",
+          "id": "premAmt"
+        },
+        {
+          "label": "APTC Amount",
+          "type": "text",
+          "id": "aptcAmt"
+        },
+        {
+          "label": "Premium Amount Total",
+          "type": "text",
+          "id": "premAmtTot"
+        },
+        {
+          "label": "Total Responsible Amount",
+          "type": "text",
+          "id": "totResAmt"
+        },
+        {
+            "label": "CSR Amount",
+            "type": "text",
+            "id": "csrAmt"
+          }
     ]
-  }
+}

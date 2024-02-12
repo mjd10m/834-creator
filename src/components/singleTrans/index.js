@@ -1,7 +1,7 @@
-import { Container, Row, Col, Form, Card } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 import { useState, useEffect } from 'react';
 import JsonData from '../../data/data.json' 
-import GenInfo from '../genInfo'
+import CardInfo from '../card'
 
 const SingleTrans = () => {
     const [options, setOptions] = useState({})
@@ -17,7 +17,8 @@ const SingleTrans = () => {
       }, []);
     return(
         <Container>
-            <GenInfo data = {options.GeneralInfo} handleInputChange = {handleInputChange} />
+            <CardInfo data = {options.GeneralInfo} name ={"General Info"} handleInputChange = {handleInputChange} />
+            <CardInfo data = {options.SubscriberInfo} name ={"Subscriber Info"} handleInputChange = {handleInputChange} />
         </Container>
     )
 }
