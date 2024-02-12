@@ -9,7 +9,7 @@ import SingleTrans from './components/singleTrans'
 function App() {
   return (
     <Tabs
-    defaultActiveKey="profile"
+    defaultActiveKey="single"
     id="uncontrolled-tab-example"
     className="mb-3"
   >
