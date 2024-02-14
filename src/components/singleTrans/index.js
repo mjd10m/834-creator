@@ -1,7 +1,7 @@
 import { Container } from 'react-bootstrap'
 import { useState, useEffect } from 'react';
 import JsonData from '../../data/data.json' 
-import CardInfo from '../card'
+import CardInfo from '../cardInfo'
 
 const SingleTrans = () => {
     const [options, setOptions] = useState({})

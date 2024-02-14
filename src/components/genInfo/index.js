@@ -1,4 +1,16 @@
-import { Row, Col, Form } from 'react-bootstrap'
+import { Row, Col, Form, Button } from 'react-bootstrap'
+
+const addSubmit = (cardName) => {
+    if(cardName === "Subscriber Info") {
+        return(
+            <Row className='text-center'>
+                <Col>
+                    <Button variant="primary" className='col-2' type="submit">Submit</Button>
+                </Col>      
+            </Row>
+        )
+    }
+}
 
 
 const GenInfo = (props) => {
@@ -19,6 +31,7 @@ const GenInfo = (props) => {
             ))
             : "loading"} 
         </Form.Group>
+        {props.name ? addSubmit(props.name): "loading"}
     </Form>
 )
 }

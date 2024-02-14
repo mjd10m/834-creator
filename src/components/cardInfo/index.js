@@ -7,7 +7,7 @@ const CardInfo = (props) => {
         <Card className='mb-5' >
             <Card.Header className='bg-primary text-light'>{props.name}</Card.Header>
             <Card.Body>
-                <GenInfo data = {props.data} handleInputChange = {props.handleInputChange} />
+                <GenInfo data = {props.data} handleInputChange = {props.handleInputChange} name = {props.name} />
             </Card.Body>    
         </Card>
     )
