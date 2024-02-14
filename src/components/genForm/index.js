@@ -13,7 +13,7 @@ const addSubmit = (cardName) => {
 }
 
 
-const GenInfo = (props) => {
+const GenForm = (props) => {
 
     return(
     <Form>
@@ -36,4 +36,4 @@ const GenInfo = (props) => {
 )
 }
 
-export default GenInfo
+export default GenForm

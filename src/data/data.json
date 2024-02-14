@@ -182,5 +182,57 @@
             "type": "text",
             "id": "csrAmt"
           }
+    ],
+    "DependentInfo": [
+        {
+            "label": "Relationship Code",
+            "type": "text",
+            "id": "relationCode"
+        },
+        {
+            "label": "Exchange Id",
+            "type": "text",
+            "id": "depExchId"
+          },
+          {
+            "label": "Carrier Id",
+            "type": "text",
+            "id": "depCarrId"
+          },
+          {
+            "label": "Subscriber Name",
+            "type": "text",
+            "id": "depName"
+          },
+          {
+            "label": "SSN",
+            "type": "text",
+            "id": "depSsn"
+          },
+          {
+            "label": "Date of Birth",
+            "type": "date",
+            "id": "depDob"
+          },
+          {
+            "label": "Gender",
+            "type": "text",
+            "id": "depGen"
+          },
+          {
+            "label": "Smoker Code",
+            "type": "text",
+            "id": "depSmoke"
+          },
+          {
+            "label": "Coverage Type",
+            "type": "text",
+            "id": "depCovType"
+          },
+          {
+            "label": "Premium Amount",
+            "type": "text",
+            "id": "depPremAmt"
+          }
     ]
 }
