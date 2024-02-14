@@ -43,7 +43,8 @@
         {
             "label": "Enrollment Status",
             "type": "text",
-            "id": "enrollStatus"
+            "id": "enrollStatus",
+            "dropdown": ["CAE", "PFP", "CAC"]
         },
         {
             "label": "Eligibility Effective Date",
@@ -200,7 +201,7 @@
             "id": "depCarrId"
           },
           {
-            "label": "Subscriber Name",
+            "label": "Dependent Name",
             "type": "text",
             "id": "depName"
           },

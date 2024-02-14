@@ -32,7 +32,7 @@ const DepForm = (props) => {
     return(
     <Container>
         {Array.from({length: props.number}).map((_, k) => 
-        <Form>
+        <Form key={`Dep` + (k)}>
             <Row>
                 <Col>
                 <h5 className='border-bottom pb-1'>Dependent {k+1}</h5>
@@ -41,11 +41,11 @@ const DepForm = (props) => {
             <Form.Group as={Row} className="mb-3">
             {props.data
                 ? props.data.map((data, i) => (
-                <Col key={data.id} sm="4" className='mb-3'>
+                <Col key={k + data.id} sm="4" className='mb-3'>
                     <Row>
                     <Form.Label column sm="12">{data.label}</Form.Label>
                         <Col>
-                            <Form.Control type={data.type}  id = {data.id} onChange={props.handleInputChange}/>
+                            <Form.Control type={data.type}  id = {k + data.id} onChange={props.handleInputChange} value={props.currentState(data.id)} />
                         </Col>
                     </Row>
                 </Col>

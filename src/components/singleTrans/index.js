@@ -12,16 +12,18 @@ const SingleTrans = () => {
         const { id, value } = event.target;
         setPageData({ ...pageData, [id]: value });
       };
-    
+    const getCurrentState = (inputId) => {
+        return pageData[inputId]
+    }
     useEffect(() => {
         setOptions(JsonData);
       }, []);
     return(
         <Container>
-            <InfoCard data = {options.GeneralInfo} name ={"General Info"} handleInputChange = {handleInputChange} />
-            <InfoCard data = {options.SubscriberInfo} name ={"Subscriber Info"} handleInputChange = {handleInputChange} />
+            <InfoCard data = {options.GeneralInfo} name ={"General Info"} handleInputChange = {handleInputChange} currentState ={getCurrentState} />
+            <InfoCard data = {options.SubscriberInfo} name ={"Subscriber Info"} handleInputChange = {handleInputChange} currentState ={getCurrentState} />
             { pageData.depNum > '0' 
-            ? <InfoCard data = {options.DependentInfo} name ={"Dependent Info"} handleInputChange = {handleInputChange} number = {pageData.depNum} />
+            ? <InfoCard data = {options.DependentInfo} name ={"Dependent Info"} handleInputChange = {handleInputChange} number = {pageData.depNum} currentState ={getCurrentState} />
             : <div></div>
             }
             <Row className='text-center'>
