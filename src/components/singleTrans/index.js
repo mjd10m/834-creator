@@ -13,7 +13,14 @@ const SingleTrans = () => {
         setPageData({ ...pageData, [id]: value });
       };
     const getCurrentState = (inputId) => {
-        return pageData[inputId]
+        let inputValue = pageData[inputId]
+        if(inputValue == undefined) {
+            return ''
+        }
+        else {
+            return inputValue
+        }
+
     }
     useEffect(() => {
         setOptions(JsonData);
