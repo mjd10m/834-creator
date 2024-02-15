@@ -5,8 +5,7 @@ import InfoCard from '../infoCard'
 
 const SingleTrans = () => {
     const [options, setOptions] = useState({})
-    const [pageData, setPageData] = useState({depNum: '1'});
-    console.log(pageData)
+    const [pageData, setPageData] = useState({});
 
     const handleInputChange = (event) => {
         const { id, value } = event.target;
@@ -14,7 +13,7 @@ const SingleTrans = () => {
       };
     const getCurrentState = (inputId) => {
         let inputValue = pageData[inputId]
-        if(inputValue == undefined) {
+        if(inputValue === undefined) {
             return ''
         }
         else {

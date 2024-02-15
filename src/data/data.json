@@ -26,7 +26,7 @@
             "id": "payerId"
         },
         {
-            "label": "Conversion Carrier",
+            "label": "Carrier Name",
             "type": "text",
             "id": "convCarr"
         },
@@ -59,7 +59,8 @@
         {
             "label": "Coverage Status",
             "type": "text",
-            "id": "covStatus"
+            "id": "covStatus",
+            "dropdown": ["Active", "Terminated", "Pending","Cancelled"]
         },
         {
             "label": "Transaction Effective Date",
@@ -74,7 +75,8 @@
         {
             "label": "Number of Dependents",
             "type": "text",
-            "id": "depNum"
+            "id": "depNum",
+            "dropdown": ["0", "1", "2","3","4", "5", "6","7", "8", "9", "10"]
         },
         {
             "label": "Policy Number",
@@ -96,7 +98,8 @@
         {
           "label": "Subscriber Type",
           "type": "text",
-          "id": "subtype"
+          "id": "subtype",
+          "dropdown": ["Subscriber", "Responsible Party", "Custodial Parent"]
         },
         {
           "label": "Exchange Id",
@@ -146,17 +149,20 @@
         {
           "label": "Gender",
           "type": "text",
-          "id": "gen"
+          "id": "gen",
+          "dropdown":["M - Male", "F - Female", "U - Unknown"]
         },
         {
           "label": "Smoker Code",
           "type": "text",
-          "id": "smoke"
+          "id": "smoke",
+          "dropdown":["N - None", "S - Substance Abuse", "T - Tobacco Use","U - Unknown"]
         },
         {
           "label": "Coverage Type",
           "type": "text",
-          "id": "covType"
+          "id": "covType",
+          "dropdown": ["HLT - Health", "DEN - Dental", "VIS - Vision"]
         },
         {
           "label": "Premium Amount",
@@ -188,7 +194,37 @@
         {
             "label": "Relationship Code",
             "type": "text",
-            "id": "relationCode"
+            "id": "relationCode",
+            "dropdown": [
+              "01 Spouse",
+              "03 Father or Mother",
+              "04 Grandfather or Grandmother",
+              "05 Grandson or Granddaughter",
+              "06 Uncle or Aunt",
+              "07 Nephew or Niece",
+              "08 Cousin",
+              "09 Adopted Child",
+              "10 Foster Child",
+              "11 Son-in-law or Daughter-in-law",
+              "12 Brother-in-law or Sister-in-law",
+              "13 Mother-in-law or Father-in-law",
+              "14 Brother or Sister",
+              "15 Ward",
+              "17 Stepson or Stepdaughter",
+              "18 Self",
+              "19 Child",
+              "23 Sponsored Dependent",
+              "24 Dependent of a Minor Dependent",
+              "25 Ex-spouse",
+              "26 Guardian",
+              "31 Court Appointed Guardian",
+              "32 Mother",
+              "33 Father",
+              "38 Collateral Dependent",
+              "48 Stepfather",
+              "49 Stepmother",
+              "53 Life Partner"
+            ]
         },
         {
             "label": "Exchange Id",
@@ -218,17 +254,20 @@
           {
             "label": "Gender",
             "type": "text",
-            "id": "depGen"
+            "id": "depGen",
+            "dropdown":["M - Male", "F - Female", "U - Unknown"]
           },
           {
             "label": "Smoker Code",
             "type": "text",
-            "id": "depSmoke"
+            "id": "depSmoke",
+            "dropdown":["N - None", "S - Substance Abuse", "T - Tobacco Use","U - Unknown"]
           },
           {
             "label": "Coverage Type",
             "type": "text",
-            "id": "depCovType"
+            "id": "depCovType",
+            "dropdown": ["HLT - Health", "DEN - Dental", "VIS - Vision"]
           },
           {
             "label": "Premium Amount",
