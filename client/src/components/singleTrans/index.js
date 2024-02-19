@@ -12,6 +12,7 @@ const SingleTrans = () => {
         const { id, value } = event.target;
         setPageData({ ...pageData, [id]: value });
       };
+    
     const getCurrentState = (inputId) => {
         let inputValue = pageData[inputId]
         if(inputValue === undefined) {
@@ -21,6 +22,11 @@ const SingleTrans = () => {
             return inputValue
         }
 
+    }
+
+    const handleSubmit = () => {
+        fetch('/api')
+        .then(res => res.json())
     }
     useEffect(() => {
         setOptions(JsonData);
@@ -35,7 +41,7 @@ const SingleTrans = () => {
             }
             <Row className='text-center'>
                 <Col>
-                    <Button variant="primary" className='col-2 mb-3' type="submit">Submit</Button>
+                    <Button onClick={handleSubmit()} variant="primary" className='col-2 mb-3' type="submit">Submit</Button>
                 </Col>      
             </Row>
         </Container>

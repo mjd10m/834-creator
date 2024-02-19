@@ -1,0 +1,23 @@
+{
+  "name": "834-creator",
+  "version": "1.0.0",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "develop": "concurrently \"cd server && npm run start\" \"cd client && npm start\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mjd10m/834-creator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mjd10m/834-creator/issues"
+  },
+  "homepage": "https://github.com/mjd10m/834-creator#readme",
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
