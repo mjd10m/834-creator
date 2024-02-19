@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import JsonData from '../../data/data.json' 
 import InfoCard from '../infoCard'
 
+
 const SingleTrans = () => {
     const [options, setOptions] = useState({})
     const [pageData, setPageData] = useState({});
