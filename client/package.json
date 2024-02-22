@@ -2,10 +2,12 @@
   "name": "834-creator",
   "version": "0.1.0",
   "private": true,
+  "homepage":".",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.6.7",
     "bootstrap": "^5.3.2",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.1",
@@ -38,5 +40,7 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:3001"
+  "devDependencies": {
+    "@babel/preset-react": "^7.23.3"
+  }
 }

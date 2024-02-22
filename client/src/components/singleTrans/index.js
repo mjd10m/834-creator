@@ -2,6 +2,7 @@ import { Container, Row, Col, Button } from 'react-bootstrap'
 import { useState, useEffect } from 'react';
 import JsonData from '../../data/data.json' 
 import InfoCard from '../infoCard'
+import axios from 'axios'
 
 
 const SingleTrans = () => {
@@ -25,8 +26,9 @@ const SingleTrans = () => {
     }
 
     const handleSubmit = () => {
-        fetch('/api')
-        .then(res => res.json())
+       fetch('/api')
+       .then(res => res.json())
+       .then(text => (console.log(text)))
     }
     useEffect(() => {
         setOptions(JsonData);
@@ -41,7 +43,7 @@ const SingleTrans = () => {
             }
             <Row className='text-center'>
                 <Col>
-                    <Button onClick={handleSubmit()} variant="primary" className='col-2 mb-3' type="submit">Submit</Button>
+                    <Button onClick={handleSubmit} variant="primary" className='col-2 mb-3' type="button">Submit</Button>
                 </Col>      
             </Row>
         </Container>
