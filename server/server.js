@@ -6,12 +6,13 @@ const app = express()
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(require('./routes'))
 
-app.get('/api', (req, res)=> {
-    console.log(req)
-    const text =  Date.now()
-    res.json(text)
-})
+// app.get('/api', (req, res)=> {
+//     console.log(req)
+//     const text =  Date.now()
+//     res.json(text)
+// })
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, '../client/build')));

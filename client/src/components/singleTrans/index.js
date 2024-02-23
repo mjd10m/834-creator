@@ -2,6 +2,7 @@ import { Container, Row, Col, Button } from 'react-bootstrap'
 import { useState, useEffect } from 'react';
 import JsonData from '../../data/data.json' 
 import InfoCard from '../infoCard'
+import { saveAs } from 'file-saver';
 
 
 const SingleTrans = () => {
@@ -23,12 +24,18 @@ const SingleTrans = () => {
         }
 
     }
-
-    const handleSubmit = () => {
-       fetch('/api')
-       .then(res => res.json())
-       .then(text => (console.log(text)))
+    const createFile = (text) => {
+        console.log(text)
+        const file = new Blob([text], { type: 'text/plain;charset=utf-8' });
+        saveAs(file, 'hello_world.txt');
     }
+
+    const handleSubmit = async () => {
+       fetch('/api/create-file')
+       .then(res => res.json())
+       .then(text => (createFile(text)))
+    };
+
     useEffect(() => {
         setOptions(JsonData);
       }, []);
