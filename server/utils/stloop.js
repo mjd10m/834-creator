@@ -1,9 +1,10 @@
 const {formatDate, dtpDates, subDemo, formatInput} = require('./helpers');
 const createLsLoop = require('./lsloop.js')
+const moment = require('moment')
 
 const createStLoop = (data) => {
-    const timestamp = Date.now()
-    const stLoop =
+    const timestamp = moment()
+    let stLoop =
 `ST*834*000002000*005010X220A1~
 BGN*00*${data.exchId}*${formatDate('YYYYMMDD',timestamp)}*${formatDate('HHmmssSS',timestamp)}*ET***2~
 DTP*007*D8*${formatDate('YYYYMMDD',timestamp)}~
@@ -33,7 +34,12 @@ REF*1L*${data.policyNum}~
 REF*CE*${data.hiosId}~
 REF*X9*${data.policyNum}~
 LS*2700~
-${createLsLoop(data, timestamp)}`
+${createLsLoop(data, timestamp)}
+LE*2700~`
+
+const loopCount = stLoop.split('~').length
+
+stLoop = stLoop.concat(`\nSE*${loopCount}*000002000~`)
 
 
     return stLoop

@@ -1,15 +1,16 @@
 const router = require('express').Router();
 const {formatDate} = require('../../utils/helpers')
-const header = require('../../utils/header')
+const {createHeader,createFooter} = require('../../utils/header-footer')
 const stLoop = require('../../utils/stloop')
+const moment = require('moment')
 
 router.route('/')
     .post((req, res)=> {
-        const timestamp = Date.now()
         const data = req.body
         const text = 
-`${header(data)}
-${stLoop(data)}`
+`${createHeader(data)}
+${stLoop(data)}
+${createFooter()}`
         res.json(text)
 })
 
