@@ -74,7 +74,7 @@
         },
         {
             "label": "Number of Dependents",
-            "type": "text",
+            "type": "number",
             "id": "depNum",
             "dropdown": ["0", "1", "2","3","4", "5", "6","7", "8", "9", "10"]
         },
@@ -98,7 +98,7 @@
         {
           "label": "Subscriber Type",
           "type": "text",
-          "id": "subtype",
+          "id": "subType",
           "dropdown": ["Subscriber", "Responsible Party", "Custodial Parent"]
         },
         {

@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import JsonData from '../../data/data.json' 
 import InfoCard from '../infoCard'
 import { saveAs } from 'file-saver';
+import axios from 'axios'
 
 
 const SingleTrans = () => {
@@ -12,6 +13,7 @@ const SingleTrans = () => {
     const handleInputChange = (event) => {
         const { id, value } = event.target;
         setPageData({ ...pageData, [id]: value });
+        console.log(pageData)
       };
     
     const getCurrentState = (inputId) => {
@@ -26,14 +28,16 @@ const SingleTrans = () => {
     }
     const createFile = (text) => {
         console.log(text)
-        const file = new Blob([text], { type: 'text/plain;charset=utf-8' });
-        saveAs(file, 'hello_world.txt');
+        // const file = new Blob([text], { type: 'text/plain;charset=utf-8' });
+        // saveAs(file, 'hello_world.txt');
     }
 
-    const handleSubmit = async () => {
-       fetch('/api/create-file')
-       .then(res => res.json())
-       .then(text => (createFile(text)))
+    const handleSubmit = () => {
+       axios.post('/api/create-file', pageData)
+       .then(res => createFile(res.data))
+       .catch(error => {
+            console.error('Error:', error);
+        })
     };
 
     useEffect(() => {
