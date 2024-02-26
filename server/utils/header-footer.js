@@ -11,7 +11,6 @@ return fileHeader
 }
 
 const createFooter = () => {
-    const timestamp = moment()
 const fileFooter = 
 `GE*1*1000~
 IEA*1*000000100~`

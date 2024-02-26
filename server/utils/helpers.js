@@ -65,4 +65,9 @@ const formatInput = (inputText) => {
     return textArr[0]
 }
 
-module.exports = {addSpace, formatDate, dtpDates, subDemo, formatInput}
+const createFileName = () => {
+    const timestamp = moment()
+    return `834_CHRONHIX_TX_${formatDate('YYYYMMDDHHMMSSDD',timestamp)}`
+}
+
+module.exports = {addSpace, formatDate, dtpDates, subDemo, formatInput, createFileName}

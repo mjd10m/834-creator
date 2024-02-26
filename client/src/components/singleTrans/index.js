@@ -4,11 +4,12 @@ import JsonData from '../../data/data.json'
 import InfoCard from '../infoCard'
 import { saveAs } from 'file-saver';
 import axios from 'axios'
+import getLocalStorageState from '../../utils/localstorage'
 
 
 const SingleTrans = () => {
     const [options, setOptions] = useState({})
-    const [pageData, setPageData] = useState({});
+    const [pageData, setPageData] = useState(getLocalStorageState());
 
     const handleInputChange = (event) => {
         const { id, value } = event.target;
@@ -26,10 +27,10 @@ const SingleTrans = () => {
         }
 
     }
-    const createFile = (text) => {
+    const createFile = (data) => {
         console.log(text)
-        const file = new Blob([text], { type: 'text/plain;charset=utf-8' });
-        saveAs(file, 'hello_world.txt');
+        const file = new Blob([data[0]], { type: 'text/plain;charset=utf-8' });
+        saveAs(file, data[1]);
     }
 
     const handleSubmit = () => {
