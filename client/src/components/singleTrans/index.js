@@ -28,8 +28,8 @@ const SingleTrans = () => {
     }
     const createFile = (text) => {
         console.log(text)
-        // const file = new Blob([text], { type: 'text/plain;charset=utf-8' });
-        // saveAs(file, 'hello_world.txt');
+        const file = new Blob([text], { type: 'text/plain;charset=utf-8' });
+        saveAs(file, 'hello_world.txt');
     }
 
     const handleSubmit = () => {
