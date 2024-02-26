@@ -1,12 +1,20 @@
 
 
-const getLocalStorageState = () => {
+const getLocalStorageState = (key) => {
     
-    const savedState = localStorage.getItem('state')
-    ? JSON.parse(localStorage.getItem('state'))
+    const savedState = localStorage.getItem(key)
+    ? JSON.parse(localStorage.getItem(key))
     : {};
 
   return savedState;
 }
 
-export default getLocalStorageState
+const saveLocalStorageState = (key, state) => {
+    localStorage.setItem(key, JSON.stringify(state));
+}
+
+const removeLocalStorageState = (key) => {
+    localStorage.removeItem(key)
+}
+
+export {getLocalStorageState, saveLocalStorageState, removeLocalStorageState}

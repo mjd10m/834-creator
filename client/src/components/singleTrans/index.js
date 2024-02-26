@@ -4,12 +4,13 @@ import JsonData from '../../data/data.json'
 import InfoCard from '../infoCard'
 import { saveAs } from 'file-saver';
 import axios from 'axios'
-import getLocalStorageState from '../../utils/localstorage'
+import {getLocalStorageState, saveLocalStorageState, removeLocalStorageState} from '../../utils/localstorage'
 
 
 const SingleTrans = () => {
     const [options, setOptions] = useState({})
-    const [pageData, setPageData] = useState(getLocalStorageState());
+    const [pageData, setPageData] = useState(getLocalStorageState('state'))
+    const [checked, setChecked] = useState(false)
 
     const handleInputChange = (event) => {
         const { id, value } = event.target;
@@ -28,15 +29,21 @@ const SingleTrans = () => {
 
     }
     const createFile = (data) => {
-        console.log(text)
+        console.log(data)
         const file = new Blob([data[0]], { type: 'text/plain;charset=utf-8' });
         saveAs(file, data[1]);
     }
+    
+    const handleCheck = () => {
+        setChecked(!checked)
+    }
 
     const handleSubmit = () => {
-       axios.post('/api/create-file', pageData)
-       .then(res => createFile(res.data))
-       .catch(error => {
+        removeLocalStorageState('state')
+        saveLocalStorageState('lastState',pageData)
+        axios.post('/api/create-file', pageData)
+        .then(res => createFile(res.data))
+        .catch(error => {
             console.error('Error:', error);
         })
     };
@@ -44,9 +51,22 @@ const SingleTrans = () => {
     useEffect(() => {
         setOptions(JsonData);
       }, []);
+    
+    useEffect(() => {
+        saveLocalStorageState('state',pageData)
+    },[pageData])
+
+    useEffect(() => {
+        if(checked) {
+            setPageData(getLocalStorageState('lastState'))
+        } else {
+            setPageData({})
+        }
+    },[checked])
+
     return(
         <Container>
-            <InfoCard data = {options.GeneralInfo} name ={"General Info"} handleInputChange = {handleInputChange} currentState ={getCurrentState} />
+            <InfoCard data = {options.GeneralInfo} name ={"General Info"} handleInputChange = {handleInputChange} currentState ={getCurrentState} handleCheck={handleCheck} checked ={checked} />
             <InfoCard data = {options.SubscriberInfo} name ={"Subscriber Info"} handleInputChange = {handleInputChange} currentState ={getCurrentState} />
             { pageData.depNum > '0' 
             ? <InfoCard data = {options.DependentInfo} name ={"Dependent Info"} handleInputChange = {handleInputChange} number = {pageData.depNum} currentState ={getCurrentState} />

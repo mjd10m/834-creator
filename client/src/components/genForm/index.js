@@ -6,6 +6,8 @@ const GenForm = (props) => {
 
     return(
     <Form>
+        {props.name === 'General Info' ? <Form.Check type={'checkbox'} onChange={props.handleCheck} checked={props.checked} id={'savedStateBox'} label={'Use Previous Inputs'}/> : <div/>}
+        
         <Form.Group as={Row} className="mb-3">
         {props.data
             ? props.data.map((data, i) => (
