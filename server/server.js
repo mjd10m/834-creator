@@ -7,6 +7,7 @@ const app = express()
 
 const allowedOrigins = [
     'http://localhost:3000',
+    'https://eight34-creator.onrender.com'
 ];
 
 const corsOptions = {
