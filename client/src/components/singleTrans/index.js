@@ -43,7 +43,7 @@ const SingleTrans = () => {
         event.preventDefault()
         removeLocalStorageState('state')
         saveLocalStorageState('lastState',pageData)
-        axios.post('http://localhost:3001/api/create-file', pageData)
+        axios.post(process.env.REACT_APP_SERVER, pageData)
         .then(res => createFile(res.data))
         .catch(error => {
             console.error('Error:', error)
