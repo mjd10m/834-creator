@@ -30,6 +30,15 @@ const createNameArr = (name) => {
     }
     return nameArr
 }
+
+const formatName = (name) => {
+    const nameArr = name.split(' ')
+    if(nameArr.length < 2 ) {
+        return `${nameArr[1]} ${nameArr[0]}`
+    } else {
+        return `${nameArr[2]} ${nameArr[0]} ${nameArr[1]}`
+    }
+}
 const subTypeInfo = (subType, cCode) => {
     let stInfo = []
     switch (subType) {
@@ -70,4 +79,4 @@ const createFileName = () => {
     return `834_CHRONHIX_TX_${formatDate('YYYYMMDDHHMMSSDD',timestamp)}`
 }
 
-module.exports = {addSpace, formatDate, dtpDates, subDemo, formatInput, createFileName}
+module.exports = {addSpace, formatDate, dtpDates, subDemo, formatInput, createFileName, formatName}

@@ -13,7 +13,7 @@ return fileHeader
 const createFooter = () => {
 const fileFooter = 
 `GE*1*1000~
-IEA*1*000000100~`
+IEA*1*000000100~\n`
 
 return fileFooter
 }

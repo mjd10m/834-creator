@@ -1,12 +1,12 @@
-import { Row, Col, Form } from 'react-bootstrap'
+import { Row, Col, Form, Container } from 'react-bootstrap'
 
 
 
 const GenForm = (props) => {
 
     return(
-    <Form>
-        {props.name === 'General Info' ? <Form.Check type={'checkbox'} onChange={props.handleCheck} checked={props.checked} id={'savedStateBox'} label={'Use Previous Inputs'}/> : <div/>}
+    <Container>
+        {props.name === 'General Info' && <Form.Check type={'checkbox'} onChange={props.handleCheck} checked={props.checked} id={'savedStateBox'} label={'Use Previous Inputs'}/>}
         
         <Form.Group as={Row} className="mb-3">
         {props.data
@@ -16,8 +16,8 @@ const GenForm = (props) => {
                 <Form.Label column sm="12">{data.label}</Form.Label>
                     <Col>
                         {"dropdown" in data 
-                        ? <Form.Select defaultValue="default" type={data.type}  id = {data.id} onChange={props.handleInputChange}>
-                            <option value="default" key="default" disabled></option>
+                        ? <Form.Select value={props.currentState(data.id)} type={data.type}  id = {data.id} onChange={props.handleInputChange}>
+                            <option value="" key="default" disabled></option>
                             {data.dropdown.map((option, i) => (
                                     <option key={option + data.id}>{option}</option>
                             ))}
@@ -30,7 +30,7 @@ const GenForm = (props) => {
             ))
             : "loading"} 
         </Form.Group>
-    </Form>
+    </Container>
 )
 }
 

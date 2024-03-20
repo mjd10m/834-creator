@@ -1,4 +1,4 @@
-const {formatDate, dtpDates, subDemo, formatInput} = require('./helpers');
+const {formatDate, dtpDates, subDemo, formatInput, formatName} = require('./helpers');
 const createLsLoop = require('./lsloop.js')
 const moment = require('moment')
 
@@ -11,7 +11,7 @@ DTP*007*D8*${formatDate('YYYYMMDD',timestamp)}~
 QTY*ET*1~
 QTY*DT*${data.depNum}~
 QTY*TO*${(Number(data.depNum) + 1)}~
-N1*P5*${data.subName}*FI*${data.ssn}~
+N1*P5*${formatName(data.subName)}*FI*${data.ssn}~
 N1*IN*${data.payerName}*FI*${data.payerId}~
 N1*BO*${data.brokerName}*FI*${data.brokerId}~
 INS*Y*18*021*EC*A*E**AC~

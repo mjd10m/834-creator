@@ -32,7 +32,7 @@ const DepForm = (props) => {
     return(
     <Container>
         {Array.from({length: props.number}).map((_, k) => 
-        <Form key={`Dep` + (k)}>
+        <Col key={`dep` + (k)}>
             <Row>
                 <Col>
                 <h5 className='border-bottom pb-1'>Dependent {k+1}</h5>
@@ -60,7 +60,7 @@ const DepForm = (props) => {
             ))
             : "loading"} 
             </Form.Group>
-        </Form>
+        </Col>
         )}
         
     </Container>   

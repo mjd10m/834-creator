@@ -1,4 +1,4 @@
-import { Container, Row, Col, Button } from 'react-bootstrap'
+import { Container, Row, Col, Button, Form } from 'react-bootstrap'
 import { useState, useEffect } from 'react';
 import JsonData from '../../data/data.json' 
 import InfoCard from '../infoCard'
@@ -11,6 +11,7 @@ const SingleTrans = () => {
     const [options, setOptions] = useState({})
     const [pageData, setPageData] = useState(getLocalStorageState('state'))
     const [checked, setChecked] = useState(false)
+    const [error, setError] = useState(null);
 
     const handleInputChange = (event) => {
         const { id, value } = event.target;
@@ -38,14 +39,22 @@ const SingleTrans = () => {
         setChecked(!checked)
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = (event) => {
+        event.preventDefault()
         removeLocalStorageState('state')
         saveLocalStorageState('lastState',pageData)
-        axios.post('/api/create-file', pageData)
+        axios.post('http://localhost:3001/api/create-file', pageData)
         .then(res => createFile(res.data))
         .catch(error => {
-            console.error('Error:', error);
-        })
+            console.error('Error:', error)
+            setError('Failed to submit the form. Please fill out completely.');;
+            setTimeout(() => {
+                window.scrollTo({
+                    top: document.body.scrollHeight,
+                    behavior: 'smooth'
+                });
+            }, 100);
+        });
     };
 
     useEffect(() => {
@@ -66,17 +75,25 @@ const SingleTrans = () => {
 
     return(
         <Container>
+            <Form onSubmit={handleSubmit}>
             <InfoCard data = {options.GeneralInfo} name ={"General Info"} handleInputChange = {handleInputChange} currentState ={getCurrentState} handleCheck={handleCheck} checked ={checked} />
             <InfoCard data = {options.SubscriberInfo} name ={"Subscriber Info"} handleInputChange = {handleInputChange} currentState ={getCurrentState} />
-            { pageData.depNum > '0' 
-            ? <InfoCard data = {options.DependentInfo} name ={"Dependent Info"} handleInputChange = {handleInputChange} number = {pageData.depNum} currentState ={getCurrentState} />
-            : <div></div>
+            { pageData.depNum > '0' && (
+            <InfoCard data = {options.DependentInfo} name ={"Dependent Info"} handleInputChange = {handleInputChange} number = {pageData.depNum} currentState ={getCurrentState} />)
             }
             <Row className='text-center'>
                 <Col>
-                    <Button onClick={handleSubmit} variant="primary" className='col-2 mb-3' type="button">Submit</Button>
+                    <Button variant="primary" className='col-2 mb-3' type="submit">Submit</Button>
                 </Col>      
             </Row>
+            {error && (
+                <Row className='text-center'>
+                    <Col>
+                        <p className=' mb-3 error'>{error}</p>
+                    </Col>      
+                </Row>
+            )}
+            </Form>
         </Container>
     )
 }
