@@ -18,11 +18,13 @@ const SingleTrans = () => {
 
     const handleInputChange = (event, index) => {
         const { id, value, dataset } = event.target;
+        console.log(value)
         if (index === 'General Info') {
             setGenData({...genData, [id]: value}) 
         } else if (index === 'Subscriber Info') {
             setSubData({...subData, [id]: value}) 
         } else if (index <= depData.length) {
+            console.log('Here')
             setDepData(prevDepData => {
                 const updatedDepForm = [...prevDepData]
                 updatedDepForm[index][dataset.inputName] = value
@@ -98,9 +100,9 @@ const SingleTrans = () => {
         }
     },[checked])
     useEffect(() => {
-        if (pageData.depNum) {
+        if (genData.depNum) {
             setDepData(prevDepData => {
-                const newLength = pageData.depNum;
+                const newLength = genData.depNum;
                 if (newLength < prevDepData.length) {
                     return prevDepData.slice(0, newLength);
                 } else {
@@ -109,11 +111,9 @@ const SingleTrans = () => {
                 }
             });
         } else {
-            // Handle the case when pageData.depNum is undefined or 0
             setDepData([]);
         }
-        //console.log(depData)
-    }, [pageData.depNum]);
+    }, [genData.depNum]);
     return(
         <Container>
             <Form onSubmit={handleSubmit}>
