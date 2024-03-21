@@ -47,7 +47,7 @@ const SingleTrans = () => {
             }
         } else if (index === 'Subscriber Info') {
             if(subData.hasOwnProperty(inputId)) {
-                inputValue = genData[inputId]
+                inputValue = subData[inputId]
             }
         }
         return inputValue !== undefined ? inputValue : ''
@@ -64,6 +64,8 @@ const SingleTrans = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
+        let combinedState = [genData, subData, depData]
+        console.log(combinedState)
         removeLocalStorageState('state')
         saveLocalStorageState('lastState',pageData)
         axios.post(process.env.REACT_APP_SERVER, pageData)
