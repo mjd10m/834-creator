@@ -6,11 +6,12 @@ const {createFileName} = require('../../utils/helpers')
 
 router.route('/')
     .post((req, res)=> {
-        const data = req.body
+        //const data = req.body
+        const [genData, subData, depData] = req.body
         let responseData = []
         const text = 
-`${createHeader(data)}
-${stLoop(data)}
+`${createHeader(genData)}
+${stLoop(genData,subData)}
 ${createFooter()}`
         responseData.push(text)
         const fileName = createFileName()

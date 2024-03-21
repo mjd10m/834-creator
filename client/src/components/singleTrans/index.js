@@ -70,7 +70,7 @@ const SingleTrans = () => {
         console.log(combinedState)
         removeLocalStorageState('state')
         saveLocalStorageState('lastState',pageData)
-        axios.post(process.env.REACT_APP_SERVER, pageData)
+        axios.post(process.env.REACT_APP_SERVER, combinedState)
         .then(res => createFile(res.data))
         .catch(error => {
             console.error('Error:', error)

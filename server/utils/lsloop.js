@@ -1,10 +1,10 @@
-const {formatDate, dtpDates, subDemo, formatInput} = require('./helpers')
+const {formatDate, dtpDates} = require('./helpers')
 
 
-const createLsLoop = (data, timestamp) => {
+const createLsLoop = (genData, subData, timestamp) => {
     const loopData = {
         name:['RATING AREA', 'PRE AMT 1','APTC AMT', 'PRE AMT TOT', 'TOT RES AMT','SOURCE EXCHANGE ID','REQUEST SUBMIT TIMESTAMP', 'CONVERSION', 'ENROLLMENT_STATUS', 'COVERAGE_STATUS', 'CSR AMT'],
-        variable:[data.rateArea, data.premAmt, data.aptcAmt, data.premAmtTot,data.totResAmt, data.souExchId, formatDate('YYYYMMDDHHMMSS',timestamp), data.convCarr, data.enrollStatus, data.covStatus, data.csrAmt],
+        variable:[genData.rateArea, subData.premAmt, subData.aptcAmt, subData.premAmtTot, subData.totResAmt, genData.souExchId, formatDate('YYYYMMDDHHMMSS',timestamp), genData.convCarr, genData.enrollStatus, genData.covStatus, subData.csrAmt],
         ref:['9X','9X','9V','9X','9V','17','17','17','17','17','9V',]
     }
     const arr = loopData.name
@@ -17,7 +17,7 @@ REF*${loopData.ref[index]}*${loopData.variable[index]}~`
             return `LX*${index + 1}~
 N1*75*${k}~
 REF*${loopData.ref[index]}*${loopData.variable[index]}~
-${dtpDates(data.transDate,'','007')}`
+${dtpDates(genData.transDate,'','007')}`
         }
 }).join('\n');
 
