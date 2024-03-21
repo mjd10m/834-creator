@@ -11,12 +11,22 @@ const SingleTrans = () => {
     const [options, setOptions] = useState({})
     const [pageData, setPageData] = useState(getLocalStorageState('state'))
     const [checked, setChecked] = useState(false)
-    const [error, setError] = useState(null);
+    const [error, setError] = useState(null)
+    const [depData, setDepData] = useState([]);
 
-    const handleInputChange = (event) => {
+    const handleInputChange = (event, index) => {
         const { id, value } = event.target;
         setPageData({ ...pageData, [id]: value });
+        if (parseInt(index, 10) < 99) {
+            setDepData(prevDepData => {
+                const updatedDepForm = [...prevDepData]
+                updatedDepForm[index][id] = value
+                return updatedDepForm
+            })
+        } 
         console.log(pageData)
+        console.log(depData)
+
       };
     
     const getCurrentState = (inputId) => {
@@ -72,7 +82,23 @@ const SingleTrans = () => {
             setPageData({})
         }
     },[checked])
-
+    useEffect(() => {
+        if (pageData.depNum) {
+            setDepData(prevDepData => {
+                const newLength = pageData.depNum;
+                if (newLength < prevDepData.length) {
+                    return prevDepData.slice(0, newLength);
+                } else {
+                    const newData = Array.from({ length: newLength - prevDepData.length }, () => ({}));
+                    return [...prevDepData, ...newData];
+                }
+            });
+        } else {
+            // Handle the case when pageData.depNum is undefined or 0
+            setDepData([]);
+        }
+        console.log(depData)
+    }, [pageData.depNum]);
     return(
         <Container>
             <Form onSubmit={handleSubmit}>

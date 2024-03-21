@@ -19,13 +19,13 @@ const DepForm = (props) => {
                 <Form.Label column sm="12">{data.label}</Form.Label>
                     <Col>
                         {"dropdown" in data 
-                        ? <Form.Select defaultValue="default" type={data.type}  id = {data.id} onChange={props.handleInputChange}>
-                            <option value="default" key="default" disabled></option>
+                        ? <Form.Select value={props.currentState(data.id + k)} depindex = {k} type={data.type}  id = {data.id + k} onChange={(event) => props.handleInputChange(event, k)}>
+                            <option value="" key="default" disabled></option>
                             {data.dropdown.map((option, j) => (
                                     <option key={option + data.id + k}>{option}</option>
                             ))}
                         </Form.Select>
-                        :<Form.Control type={data.type}  id = {data.id} onChange={props.handleInputChange} value ={props.currentState(data.id)}/>
+                        :<Form.Control type={data.type}  id = {data.id + k} depindex = {k} onChange={(event) => props.handleInputChange(event, k)} value ={props.currentState(data.id + k)}/>
                         }
                     </Col>
                 </Row>
