@@ -20,7 +20,7 @@ REF*17*${subData.exchId}~
 REF*23*${subData.carrId}~
 REF*ZZ*${subData.carrId}~
 ${dtpDates(genData.eligbDate,genData.eligbTermDate,356)}
-${subDemo(subData)}
+${subDemo(genData, subData)}
 DMG*D8*${formatDate('YYYYMMDD',subData.dob)}*${formatInput(subData.gen)}**:RET:2106-3~
 HLH*${formatInput(subData.smoke)}~
 LUI*LE*ENG**7~
