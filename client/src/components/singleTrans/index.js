@@ -17,8 +17,7 @@ const SingleTrans = () => {
     const [subData, setSubData] = useState({})
 
     const handleInputChange = (event, index) => {
-        const { id, value } = event.target;
-        setPageData({ ...pageData, [id]: value });
+        const { id, value, dataset } = event.target;
         if (index === 'General Info') {
             setGenData({...genData, [id]: value}) 
         } else if (index === 'Subscriber Info') {
@@ -26,7 +25,7 @@ const SingleTrans = () => {
         } else if (index <= depData.length) {
             setDepData(prevDepData => {
                 const updatedDepForm = [...prevDepData]
-                updatedDepForm[index][id] = value
+                updatedDepForm[index][dataset.inputName] = value
                 return updatedDepForm
             })
         };
@@ -36,15 +35,22 @@ const SingleTrans = () => {
         console.log(subData)
     }
     
-    const getCurrentState = (inputId) => {
-        let inputValue = pageData[inputId]
-        if(inputValue === undefined) {
-            return ''
+    const getCurrentState = (inputId, index) => {
+        let inputValue
+        if(typeof index  === 'number') {
+            if(depData[index] && depData[index].hasOwnProperty(inputId)) {
+                inputValue = depData[index][inputId]
+            } 
+        } else if (index === 'General Info') {
+            if(genData.hasOwnProperty(inputId)) {
+                inputValue = genData[inputId]
+            }
+        } else if (index === 'Subscriber Info') {
+            if(subData.hasOwnProperty(inputId)) {
+                inputValue = genData[inputId]
+            }
         }
-        else {
-            return inputValue
-        }
-
+        return inputValue !== undefined ? inputValue : ''
     }
     const createFile = (data) => {
         console.log(data)
@@ -111,8 +117,8 @@ const SingleTrans = () => {
             <Form onSubmit={handleSubmit}>
             <InfoCard data = {options.GeneralInfo} name ={"General Info"} handleInputChange = {handleInputChange} currentState ={getCurrentState} handleCheck={handleCheck} checked ={checked} />
             <InfoCard data = {options.SubscriberInfo} name ={"Subscriber Info"} handleInputChange = {handleInputChange} currentState ={getCurrentState} />
-            { pageData.depNum > '0' && (
-            <InfoCard data = {options.DependentInfo} name ={"Dependent Info"} handleInputChange = {handleInputChange} number = {pageData.depNum} currentState ={getCurrentState} />)
+            { genData.depNum > '0' && (
+            <InfoCard data = {options.DependentInfo} name ={"Dependent Info"} handleInputChange = {handleInputChange} number = {genData.depNum} currentState ={getCurrentState} />)
             }
             <Row className='text-center'>
                 <Col>

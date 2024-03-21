@@ -16,13 +16,13 @@ const GenForm = (props) => {
                 <Form.Label column sm="12">{data.label}</Form.Label>
                     <Col>
                         {"dropdown" in data 
-                        ? <Form.Select value={props.currentState(data.id)} type={data.type}  id = {data.id} onChange={(event) => props.handleInputChange(event, props.name)}>
+                        ? <Form.Select value={props.currentState(data.id, props.name)} type={data.type}  id = {data.id} onChange={(event) => props.handleInputChange(event, props.name)}>
                             <option value="" key="default" disabled></option>
                             {data.dropdown.map((option, i) => (
                                     <option key={option + data.id}>{option}</option>
                             ))}
                         </Form.Select>
-                        :<Form.Control type={data.type}  id = {data.id} onChange={(event) => props.handleInputChange(event, props.name)} value ={props.currentState(data.id)}/>
+                        :<Form.Control type={data.type}  id = {data.id} onChange={(event) => props.handleInputChange(event, props.name)} value ={props.currentState(data.id, props.name)}/>
                         }
                     </Col>
                 </Row>
