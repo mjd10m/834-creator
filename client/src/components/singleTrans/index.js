@@ -13,21 +13,28 @@ const SingleTrans = () => {
     const [checked, setChecked] = useState(false)
     const [error, setError] = useState(null)
     const [depData, setDepData] = useState([]);
+    const [genData, setGenData] = useState({})
+    const [subData, setSubData] = useState({})
 
     const handleInputChange = (event, index) => {
         const { id, value } = event.target;
         setPageData({ ...pageData, [id]: value });
-        if (parseInt(index, 10) < 99) {
+        if (index === 'General Info') {
+            setGenData({...genData, [id]: value}) 
+        } else if (index === 'Subscriber Info') {
+            setSubData({...subData, [id]: value}) 
+        } else if (index <= depData.length) {
             setDepData(prevDepData => {
                 const updatedDepForm = [...prevDepData]
                 updatedDepForm[index][id] = value
                 return updatedDepForm
             })
-        } 
+        };
         console.log(pageData)
         console.log(depData)
-
-      };
+        console.log(genData)
+        console.log(subData)
+    }
     
     const getCurrentState = (inputId) => {
         let inputValue = pageData[inputId]
@@ -97,7 +104,7 @@ const SingleTrans = () => {
             // Handle the case when pageData.depNum is undefined or 0
             setDepData([]);
         }
-        console.log(depData)
+        //console.log(depData)
     }, [pageData.depNum]);
     return(
         <Container>
