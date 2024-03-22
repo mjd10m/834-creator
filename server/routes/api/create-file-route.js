@@ -11,7 +11,7 @@ router.route('/')
         let responseData = []
         const text = 
 `${createHeader(genData)}
-${stLoop(genData,subData)}
+${stLoop(genData,subData,depData)}
 ${createFooter()}`
         responseData.push(text)
         const fileName = createFileName()

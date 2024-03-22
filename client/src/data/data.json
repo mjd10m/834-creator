@@ -114,7 +114,7 @@
         {
           "label": "Subscriber Name",
           "type": "text",
-          "id": "subName"
+          "id": "memName"
         },
         {
           "label": "SSN",
@@ -229,50 +229,50 @@
         {
             "label": "Exchange Id",
             "type": "text",
-            "id": "depExchId"
+            "id": "exchId"
           },
           {
             "label": "Carrier Id",
             "type": "text",
-            "id": "depCarrId"
+            "id": "carrId"
           },
           {
             "label": "Dependent Name",
             "type": "text",
-            "id": "depName"
+            "id": "memName"
           },
           {
             "label": "SSN",
             "type": "text",
-            "id": "depSsn"
+            "id": "ssn"
           },
           {
             "label": "Date of Birth",
             "type": "date",
-            "id": "depDob"
+            "id": "dob"
           },
           {
             "label": "Gender",
             "type": "text",
-            "id": "depGen",
+            "id": "gen",
             "dropdown":["M - Male", "F - Female", "U - Unknown"]
           },
           {
             "label": "Smoker Code",
             "type": "text",
-            "id": "depSmoke",
+            "id": "smoke",
             "dropdown":["N - None", "S - Substance Abuse", "T - Tobacco Use","U - Unknown"]
           },
           {
             "label": "Coverage Type",
             "type": "text",
-            "id": "depCovType",
+            "id": "covType",
             "dropdown": ["HLT - Health", "DEN - Dental", "VIS - Vision"]
           },
           {
             "label": "Premium Amount",
             "type": "text",
-            "id": "depPremAmt"
+            "id": "premAmt"
           }
     ]
 }

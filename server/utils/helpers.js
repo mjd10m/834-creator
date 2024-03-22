@@ -34,9 +34,9 @@ const createNameArr = (name) => {
 const formatName = (name) => {
     const nameArr = name.split(' ')
     if(nameArr.length < 3 ) {
-        return `${nameArr[1]} ${nameArr[0]}`
+        return `${nameArr[0]} ${nameArr[1]}`
     } else {
-        return `${nameArr[2]} ${nameArr[0]} ${nameArr[1]}`
+        return `${nameArr[0]} ${nameArr[2]}`
     }
 }
 const subTypeInfo = (subType, cCode) => {
@@ -49,22 +49,28 @@ const subTypeInfo = (subType, cCode) => {
             stInfo = ['QD','RP','']
             break
         case "Custodial Parent":
-            outputText =
             stInfo = ['S3','PQ','']
             break
     }
     return stInfo
 }
 
-const subDemo = (genData, subData) => {
+const subDemo = (genData, memData, subInd, subData) => {
     let outputText = ''
-    let nameArr = createNameArr(subData.subName)
-    let subTypeArr = subTypeInfo(subData.subType,subData.cCode)
+    let nameArr = createNameArr(memData.memName)
+    if(subInd === 'Y') {
+    let subTypeArr = subTypeInfo(memData.subType,memData.cCode)
     outputText =
-`NM1*${subTypeArr[0]}*1*${nameArr[2]}*${nameArr[0]}*${nameArr[1]}***34*${subData.ssn}~
+`NM1*${subTypeArr[0]}*1*${nameArr[2]}*${nameArr[0]}*${nameArr[1]}***34*${memData.ssn}~
 PER*${subTypeArr[1]}**TE*5555555555*EM*${nameArr[0]}.${nameArr[2]}@test.com~
+N3*${memData.strAddr}~
+N4*${memData.city}*${genData.state}*${memData.zCode}${subTypeArr[2]}~`
+    } else {
+        outputText =
+`NM1*IL*1*${nameArr[2]}*${nameArr[0]}*${nameArr[1]}***34*${memData.ssn}~
 N3*${subData.strAddr}~
-N4*${subData.city}*${genData.state}*${subData.zCode}${subTypeArr[2]}~`
+N4*${subData.city}*${genData.state}*${subData.zCode}${subData.cCode}~`
+    }
     
     return outputText
 }
