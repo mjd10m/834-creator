@@ -12,58 +12,9 @@ const SingleTrans = () => {
     const [pageData, setPageData] = useState(getLocalStorageState('state'))
     const [checked, setChecked] = useState(false)
     const [error, setError] = useState(null)
-    const [depData, setDepData] = useState([
-        {
-            "relationCode": "01 Spouse",
-            "exchId": "9574839208",
-            "carrId": "1234785943",
-            "memName": "Fill Jill",
-            "ssn": "097483927",
-            "dob": "1992-05-11",
-            "gen": "F - Female",
-            "smoke": "T - Tobacco Use",
-            "covType": "HLT - Health",
-            "premAmt": "100"
-        }
-    ]);
-    const [genData, setGenData] = useState({
-        "senderId": "CHR",
-        "state": "TX",
-        "souExchId": "SX0",
-        "payerName": "CHRISTUS",
-        "payerId": "12345843",
-        "convCarr": "CHRISTUS HEALTH",
-        "brokerName": "Jill Fill ",
-        "brokerId": "09748392",
-        "enrollStatus": "CAE",
-        "eligbDate": "2024-01-01",
-        "covStatus": "Active",
-        "transDate": "2024-01-01",
-        "depNum": "1",
-        "policyNum": "09748392",
-        "hiosId": "10934TX009238401",
-        "rateArea": "R-TX004"
-    })
-    const [subData, setSubData] = useState({
-        "subType": "Subscriber",
-        "exchId": "0947382943",
-        "carrId": "3892057483",
-        "memName": "Mill Bill",
-        "ssn": "758493202",
-        "strAddr": "12345 Road St",
-        "city": "Town",
-        "zCode": "33497",
-        "cCode": "48001",
-        "dob": "2001-05-05",
-        "gen": "M - Male",
-        "smoke": "N - None",
-        "covType": "HLT - Health",
-        "premAmt": "100",
-        "aptcAmt": "50",
-        "premAmtTot": "100",
-        "totResAmt": "50",
-        "csrAmt": "0"
-    })
+    const [depData, setDepData] = useState([]);
+    const [genData, setGenData] = useState({})
+    const [subData, setSubData] = useState({})
 
     const handleInputChange = (event, index) => {
         const { id, value, dataset } = event.target;
